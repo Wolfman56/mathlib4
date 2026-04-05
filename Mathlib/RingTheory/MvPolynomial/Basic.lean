@@ -130,7 +130,9 @@ open Pointwise in
   classical
   apply le_antisymm
   · rw [restrictSupport_eq_span, Submodule.span_le, Set.image_subset_iff]
-    simpa [monomial, ← AddMonoidAlgebra.one_def] using ⟨1, one_smul ..⟩
+    simp only [monomial, AddMonoidAlgebra.lsingle_apply, zero_subset, mem_preimage,
+      ← AddMonoidAlgebra.one_def, SetLike.mem_coe, Submodule.mem_one, algebraMap_eq]
+    exact ⟨1, by simp⟩
   · rintro _ ⟨x, rfl⟩
     simp only [toSpanSingleton_apply, mem_restrictSupport_iff, subset_def, SetLike.mem_coe,
       mem_support_iff, coeff, ne_eq, mem_zero]

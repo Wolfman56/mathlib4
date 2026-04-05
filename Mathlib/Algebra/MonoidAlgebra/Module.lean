@@ -56,7 +56,7 @@ instance distribMulAction [Monoid R] [Semiring k] [DistribMulAction R k] :
 section Module
 variable [Semiring R] [Semiring S] [Module R S] {s t : Set M} {x : S[M]}
 
-@[to_additive]
+@[to_additive (dont_translate := R)]
 instance module : Module R S[M] := inferInstanceAs <| Module R (M →₀ S)
 
 @[to_additive]

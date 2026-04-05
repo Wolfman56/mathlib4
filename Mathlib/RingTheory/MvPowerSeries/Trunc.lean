@@ -77,8 +77,7 @@ def truncFinset (R : Type*) [CommSemiring R] (s : Finset (σ →₀ ℕ)) :
   map_smul' _ _ := by
     classical
     ext
-    erw [AddMonoidAlgebra.coeff_smul]
-    simp [coeff, single, MvPolynomial.monomial]
+    simp [MvPolynomial.coeff, single, MvPolynomial.monomial]
 
 theorem truncFinset_apply (p : MvPowerSeries σ R) :
     truncFinset R s p = ∑ x ∈ s, MvPolynomial.monomial x (p.coeff x) := by rfl
